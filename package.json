@@ -1,0 +1,29 @@
+{
+  "name": "movie-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./app/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayTierney/movie-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayTierney/movie-project/issues"
+  },
+  "homepage": "https://github.com/JayTierney/movie-project#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "sequelize": "^6.21.3",
+    "sequelize-logger": "^1.0.0",
+    "sqlite3": "^5.0.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
