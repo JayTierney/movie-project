@@ -6,7 +6,7 @@ const { Sequelize } = require('sequelize')
 
 const db = new Sequelize ({
     dialect: 'sqlite',
-    storage: ':memory:',
+    storage: path.join(__dirname, 'data.sqlite'),
     logging: false
 })
 

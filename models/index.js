@@ -9,9 +9,15 @@ Movie.belongsToMany(User, {through: 'Movies_Watched'})
 User.belongsToMany(Movie, {through: 'Movies_Watched'})
 
 async function seed () {
-    await db.sync({ force: true })
-    await seedUser()
-    await seedMovie()
+    await db.sync({ force: false })
+    const users = await User.count()
+    if (!users) {
+        await seedUser()
+    } 
+    const movies = await Movie.count()
+    if (!movies) {
+        await seedMovie()
+    }
     console.log('Database Seeded')
 }
 

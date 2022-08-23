@@ -24,4 +24,5 @@ async function seedMovie () {
     }
 }
 
+
 module.exports = { Movie, seedMovie }

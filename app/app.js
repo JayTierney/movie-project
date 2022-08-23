@@ -4,11 +4,11 @@ const { movieRt, userRt } = require('../route')
 const { seed } = require('../models')
 
 app.use(express.json())
-app.use('/movies', movieRt)
-app.use('/users', userRt)
+app.use('/movie', movieRt)
+app.use('/user', userRt)
 
 
-async function serve (port) {
+async function server (port) {
 
     await seed()
 
@@ -18,4 +18,4 @@ async function serve (port) {
 
 }
 
-serve(3001)
+server(3001)

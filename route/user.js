@@ -41,4 +41,15 @@ userRt.post('/:uid/movies/:mid', async (req, res) => {
     }
 })
 
+//movies watched 
+userRt.get('/watched/:uid', async (req, res) => {
+    const { uid } = req.params
+
+    const usersWithMovies = await User.findOne({
+        where: { id: uid },
+        include: [Movie]
+    })
+    res.send(usersWithMovies)
+})
+
 module.exports = { userRt }
