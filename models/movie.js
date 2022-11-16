@@ -9,15 +9,12 @@ const Movie = db.define('Movie', {
     rating: {
         type: DataTypes.STRING
     },
-    status: {
-        type: DataTypes.BOOLEAN
-    },
     genre: {
         type: DataTypes.STRING
     }
 }, { timestamps: false })
 
-//I have used a let of loop method to allow for the code to be more adapable to more key values
+//I have used a for-let loop method to allow for the code to be more adapable to more key values
 async function seedMovie () {
     for (let movie of movieData) {
         await Movie.create(movie)

@@ -39,10 +39,9 @@ movieRt.delete('/delete/:mid', async (req, res) => {
     res.status(201).send(`movie ${mid} has been deleted`)
 })
 
-// show used watched a certain movie
+// show user watched a certain movie
 movieRt.get('/watched/:mid', async (req, res) => {
     const { mid } = req.params
-
     const movieWithUsers = await Movie.findOne({
         where: { id: mid },
         include: [User]
@@ -56,4 +55,16 @@ movieRt.post('/addmovie', async (req, res) => {
     logAllTables(db)
     res.sendStatus(200)
 })
+
+//Update movie details
+
+movieRt.put('/update/:mid', async (req, res) => {
+    const { mid } = req.params
+    const movie = await Movie.findByPk(mid)
+    if (!movie) return res.status(401).send(`Movie ${mid} not found`)
+    movie.update(req.body)
+    logAllTables(db)
+    res.status(201).send(`movie ${mid} has been updated`)
+})
+
 module.exports = {movieRt}
