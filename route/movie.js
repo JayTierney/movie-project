@@ -8,7 +8,7 @@ const { movieData } = require('../seeddata')
 //Get all Movies
 movieRt.get('/titles', async (req, res) => {
     const getMovie = await Movie.findAll()
-
+    
     let title = []
     for (val in getMovie) {
         title.push(getMovie[val].title)
