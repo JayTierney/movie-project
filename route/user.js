@@ -3,6 +3,11 @@ const userRt = express.Router()
 const { User, Movie } = require('../models')
 const { db } = require('../db')
 const { logAllTables } = require('sequelize-logger')
+const { requiresAuth } = require('express-openid-connect');
+
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 //Get all users
 userRt.get('/', async (req, res) => {

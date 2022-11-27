@@ -46,23 +46,23 @@ const movieData = [{
 ]
 
 const userData = [{
-    name: 'John Love',
+    username: "Gomez",
+    name: "Gomez Addams",
+    password: "gomez",
+    email: "gomezaddams@example.com"
 },
     {
-    name: 'Samantha Morton',
+    username: "Morticia",
+    name: "Morticia Addams",
+    password: "morticia",
+    email: "morticiaaddams@example.com"
 },
     {
-    name: 'Harry Hill',
-},
-    {
-    name: 'Matthew Morton',
-},
-    {
-    name: 'Paul Phillips',
-},
-    {
-    name: 'Andrew Greenwich',
-},
+    username: "Wednesday",
+    name: "Wednesday Addams",
+    password: "wednesday",
+    email: "wednesdayaddams@example.com"
+}
 ]
 
 module.exports = {movieData, userData}

@@ -4,11 +4,17 @@ const { Movie, User } = require('../models')
 const { db } = require('../db')
 const { logAllTables } = require('sequelize-logger')
 const { movieData } = require('../seeddata')
+const { requiresAuth } = require('express-openid-connect');
+
+
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
 
 //Get all Movies
 movieRt.get('/titles', async (req, res) => {
     const getMovie = await Movie.findAll()
-    
+
     let title = []
     for (val in getMovie) {
         title.push(getMovie[val].title)
